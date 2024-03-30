@@ -64,7 +64,7 @@ C {devices/gnd.sym} -80 -190 0 0 {name=l3 lab=GND}
 C {devices/vdd.sym} -80 -250 0 0 {name=l4 lab=VDD}
 C {devices/launcher.sym} 480 130 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_dickson.raw tran"
+tclcommand="xschem raw_read $netlist_dir/testbench.raw tran"
 }
 C {devices/gnd.sym} -80 -50 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -80 -80 0 0 {name=V2 value="PULSE(0 1.8 0 0.25u 0.25u 250n 500n)"}
