@@ -97,6 +97,22 @@ N 80 50 110 50 {
 lab=VDD}
 N 500 50 530 50 {
 lab=stage3}
+N 840 50 870 50 {
+lab=vout}
+N 870 140 950 140 {
+lab=vout_div6}
+N 870 130 870 150 {
+lab=vout_div6}
+N 870 210 870 230 {
+lab=GND}
+N 870 50 870 70 {
+lab=vout}
+N 840 140 850 140 {
+lab=clk}
+N 850 100 850 140 {
+lab=clk}
+N 850 140 850 180 {
+lab=clk}
 C {devices/gnd.sym} -260 200 0 0 {name=l1 lab=GND}
 C {devices/ipin.sym} -320 100 0 0 {name=p2 lab=clk}
 C {devices/opin.sym} 690 50 0 0 {name=p1 lab=vout}
@@ -165,7 +181,7 @@ spiceprefix=X
 C {devices/lab_wire.sym} -40 100 0 0 {name=p5 sig_type=std_logic lab=clkb}
 C {devices/vdd.sym} -260 0 0 0 {name=l4 lab=VDD}
 C {devices/vdd.sym} -90 0 0 0 {name=l5 lab=VDD}
-C {sky130_fd_pr/cap_mim_m3_1.sym} 460 170 2 0 {name=C3 model=cap_mim_m3_1 W=50 L=100 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 460 170 2 0 {name=C3 model=cap_mim_m3_1 W=25 L=25 MF=1 spiceprefix=X}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 110 30 1 0 {name=M5
 L=8
 W=7
@@ -181,7 +197,7 @@ model=nfet_01v8_lvt
 spiceprefix=X
 }
 C {devices/vdd.sym} 40 0 0 0 {name=l6 lab=VDD}
-C {sky130_fd_pr/cap_mim_m3_1.sym} 180 170 2 0 {name=C1 model=cap_mim_m3_1 W=50 L=100 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 180 170 2 0 {name=C1 model=cap_mim_m3_1 W=25 L=25 MF=1 spiceprefix=X}
 C {devices/lab_pin.sym} 180 220 3 0 {name=p3 sig_type=std_logic lab=clka}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 250 30 1 0 {name=M6
 L=8
@@ -211,7 +227,7 @@ sa=0 sb=0 sd=0
 model=nfet_01v8_lvt
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 320 170 2 0 {name=C2 model=cap_mim_m3_1 W=50 L=100 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 320 170 2 0 {name=C2 model=cap_mim_m3_1 W=25 L=25 MF=1 spiceprefix=X}
 C {devices/lab_pin.sym} 320 220 3 0 {name=p6 sig_type=std_logic lab=clkb}
 C {devices/lab_pin.sym} 460 220 3 0 {name=p7 sig_type=std_logic lab=clka}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 530 30 1 0 {name=M8
@@ -228,9 +244,25 @@ sa=0 sb=0 sd=0
 model=nfet_01v8_lvt
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 610 170 2 0 {name=C4 model=cap_mim_m3_1 W=100 L=100 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 610 170 2 0 {name=C4 model=cap_mim_m3_1 W=30 L=25 MF=1 spiceprefix=X}
 C {devices/gnd.sym} 610 230 0 0 {name=l7 lab=GND}
 C {devices/title.sym} -220 370 0 0 {name=l2 author="Uri Shaked"}
 C {devices/lab_wire.sym} 230 10 0 0 {name=p8 sig_type=std_logic lab=stage1}
 C {devices/lab_wire.sym} 370 10 0 0 {name=p9 sig_type=std_logic lab=stage2}
 C {devices/lab_wire.sym} 510 10 0 0 {name=p10 sig_type=std_logic lab=stage3}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} 870 100 0 0 {name=R2
+W=0.35
+L=2500
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} 870 180 0 0 {name=R1
+W=0.35
+L=500
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {devices/gnd.sym} 870 230 0 0 {name=l8 lab=GND}
+C {devices/lab_pin.sym} 840 50 0 0 {name=p12 sig_type=std_logic lab=vout}
+C {devices/opin.sym} 950 140 0 0 {name=p11 lab=vout_div6}
+C {devices/ipin.sym} 840 140 0 0 {name=p14 lab=VSUBS}

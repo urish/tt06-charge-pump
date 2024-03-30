@@ -13,25 +13,32 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-9.36532e-06
-x2=0.000108603
+x1=0
+x2=20u
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="vout
-clk"
-color="4 5"
+node="x1.stage1
+x1.stage2
+x1.stage3
+vout
+vout_div6"
+color="4 19 6 7 10"
 dataset=-1
 unitx=1
 logx=0
 logy=0
-}
-N -80 -110 -30 -110 {
+rainbow=0}
+N -70 -100 -70 -60 {
+lab=GND}
+N -100 -120 -70 -120 {
 lab=CLK}
-N 270 -110 330 -110 {
-lab=VOUT}
-C {devices/code.sym} -120 50 0 0 {name=TT_MODELS
+N -100 -60 -70 -60 {
+lab=GND}
+N -70 -60 -70 -50 {
+lab=GND}
+C {devices/code.sym} -160 50 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -40,16 +47,9 @@ value="
 
 "
 spice_ignore=false}
-C {dickson.sym} 120 -110 0 0 {name=x1}
-C {devices/res.sym} 330 -80 0 0 {name=R1
-value=10Meg
-footprint=1206
-device=resistor
-m=1}
-C {devices/gnd.sym} 330 -50 0 0 {name=l2 lab=GND}
-C {devices/lab_wire.sym} 320 -110 0 0 {name=p1 sig_type=std_logic lab=VOUT}
-C {devices/lab_wire.sym} -40 -110 0 0 {name=p2 sig_type=std_logic lab=CLK}
-C {devices/code.sym} 20 50 0 0 {name=STIMULI only_toplevel=false value="
+C {dickson.sym} 80 -110 0 0 {name=x1}
+C {devices/lab_wire.sym} -70 -120 0 0 {name=p2 sig_type=std_logic lab=CLK}
+C {devices/code.sym} -20 50 0 0 {name=STIMULI only_toplevel=false value="
 
 .tran 10n 100u
 .save all
@@ -59,13 +59,15 @@ run
 write testbench.raw
 .endc
 "}
-C {devices/vsource.sym} -80 -220 0 0 {name=V1 value=1.8}
-C {devices/gnd.sym} -80 -190 0 0 {name=l3 lab=GND}
-C {devices/vdd.sym} -80 -250 0 0 {name=l4 lab=VDD}
+C {devices/vsource.sym} -120 -220 0 0 {name=V1 value=1.8}
+C {devices/gnd.sym} -120 -190 0 0 {name=l3 lab=GND}
+C {devices/vdd.sym} -120 -250 0 0 {name=l4 lab=VDD}
 C {devices/launcher.sym} 480 130 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/testbench.raw tran"
 }
-C {devices/gnd.sym} -80 -50 0 0 {name=l1 lab=GND}
-C {devices/vsource.sym} -80 -80 0 0 {name=V2 value="PULSE(0 1.8 0 0 0 250n 500n)"}
+C {devices/vsource.sym} -100 -90 0 1 {name=V2 value="PULSE(0 1.8 0 0 0 250n 500n)"}
 C {devices/title.sym} 210 270 0 0 {name=l5 author="Uri Shaked"}
+C {devices/lab_pin.sym} 230 -120 2 0 {name=p4 sig_type=std_logic lab=vout}
+C {devices/lab_pin.sym} 230 -100 2 0 {name=p1 sig_type=std_logic lab=vout_div6}
+C {devices/gnd.sym} -70 -50 0 0 {name=l6 lab=GND}
