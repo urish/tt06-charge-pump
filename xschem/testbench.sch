@@ -67,5 +67,5 @@ descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/testbench.raw tran"
 }
 C {devices/gnd.sym} -80 -50 0 0 {name=l1 lab=GND}
-C {devices/vsource.sym} -80 -80 0 0 {name=V2 value="PULSE(0 1.8 0 0.25u 0.25u 250n 500n)"}
+C {devices/vsource.sym} -80 -80 0 0 {name=V2 value="PULSE(0 1.8 0 0 0 250n 500n)"}
 C {devices/title.sym} 210 270 0 0 {name=l5 author="Uri Shaked"}
