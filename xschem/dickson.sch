@@ -44,37 +44,37 @@ lab=VDD}
 N 70 10 70 50 {
 lab=VDD}
 N 140 50 180 50 {
-lab=#net1}
+lab=stage1}
 N 180 50 180 140 {
-lab=#net1}
+lab=stage1}
 N 180 200 180 220 {
 lab=clka}
 N 180 50 220 50 {
-lab=#net1}
+lab=stage1}
 N 320 50 320 140 {
-lab=#net2}
+lab=stage2}
 N 280 50 320 50 {
-lab=#net2}
+lab=stage2}
 N 320 200 320 220 {
 lab=clkb}
 N 460 50 460 140 {
-lab=#net3}
+lab=stage3}
 N 460 200 460 220 {
 lab=clka}
 N 420 50 460 50 {
-lab=#net3}
+lab=stage3}
 N 320 50 360 50 {
-lab=#net2}
+lab=stage2}
 N 180 10 180 50 {
-lab=#net1}
+lab=stage1}
 N 180 10 250 10 {
-lab=#net1}
+lab=stage1}
 N 320 10 320 50 {
-lab=#net2}
+lab=stage2}
 N 320 10 390 10 {
-lab=#net2}
+lab=stage2}
 N 460 50 500 50 {
-lab=#net3}
+lab=stage3}
 N 560 50 600 50 {
 lab=vout}
 N 600 50 610 50 {
@@ -86,17 +86,17 @@ lab=GND}
 N 610 50 690 50 {
 lab=vout}
 N 460 10 530 10 {
-lab=#net3}
+lab=stage3}
 N 460 10 460 50 {
-lab=#net3}
+lab=stage3}
 N 220 50 250 50 {
-lab=#net1}
+lab=stage1}
 N 360 50 390 50 {
-lab=#net2}
+lab=stage2}
 N 80 50 110 50 {
 lab=VDD}
 N 500 50 530 50 {
-lab=#net3}
+lab=stage3}
 C {devices/gnd.sym} -260 200 0 0 {name=l1 lab=GND}
 C {devices/ipin.sym} -320 100 0 0 {name=p2 lab=clk}
 C {devices/opin.sym} 690 50 0 0 {name=p1 lab=vout}
@@ -167,8 +167,8 @@ C {devices/vdd.sym} -260 0 0 0 {name=l4 lab=VDD}
 C {devices/vdd.sym} -90 0 0 0 {name=l5 lab=VDD}
 C {sky130_fd_pr/cap_mim_m3_1.sym} 460 170 2 0 {name=C3 model=cap_mim_m3_1 W=50 L=100 MF=1 spiceprefix=X}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 110 30 1 0 {name=M5
-L=0.15
-W=1
+L=8
+W=7
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -184,8 +184,8 @@ C {devices/vdd.sym} 40 0 0 0 {name=l6 lab=VDD}
 C {sky130_fd_pr/cap_mim_m3_1.sym} 180 170 2 0 {name=C1 model=cap_mim_m3_1 W=50 L=100 MF=1 spiceprefix=X}
 C {devices/lab_pin.sym} 180 220 3 0 {name=p3 sig_type=std_logic lab=clka}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 250 30 1 0 {name=M6
-L=0.15
-W=1
+L=8
+W=7
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -198,8 +198,8 @@ model=nfet_01v8_lvt
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 390 30 1 0 {name=M7
-L=0.15
-W=1
+L=8
+W=7
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -215,8 +215,8 @@ C {sky130_fd_pr/cap_mim_m3_1.sym} 320 170 2 0 {name=C2 model=cap_mim_m3_1 W=50 L
 C {devices/lab_pin.sym} 320 220 3 0 {name=p6 sig_type=std_logic lab=clkb}
 C {devices/lab_pin.sym} 460 220 3 0 {name=p7 sig_type=std_logic lab=clka}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 530 30 1 0 {name=M8
-L=0.15
-W=1
+L=8
+W=7
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -231,3 +231,6 @@ spiceprefix=X
 C {sky130_fd_pr/cap_mim_m3_1.sym} 610 170 2 0 {name=C4 model=cap_mim_m3_1 W=100 L=100 MF=1 spiceprefix=X}
 C {devices/gnd.sym} 610 230 0 0 {name=l7 lab=GND}
 C {devices/title.sym} -220 370 0 0 {name=l2 author="Uri Shaked"}
+C {devices/lab_wire.sym} 230 10 0 0 {name=p8 sig_type=std_logic lab=stage1}
+C {devices/lab_wire.sym} 370 10 0 0 {name=p9 sig_type=std_logic lab=stage2}
+C {devices/lab_wire.sym} 510 10 0 0 {name=p10 sig_type=std_logic lab=stage3}
