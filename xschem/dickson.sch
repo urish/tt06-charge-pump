@@ -108,16 +108,16 @@ lab=GND}
 N 870 50 870 70 {
 lab=vout}
 N 840 140 850 140 {
-lab=clk}
+lab=VSUBS}
 N 850 100 850 140 {
-lab=clk}
+lab=VSUBS}
 N 850 140 850 180 {
-lab=clk}
+lab=VSUBS}
 C {devices/gnd.sym} -260 200 0 0 {name=l1 lab=GND}
 C {devices/ipin.sym} -320 100 0 0 {name=p2 lab=clk}
 C {devices/opin.sym} 690 50 0 0 {name=p1 lab=vout}
 C {sky130_fd_pr/pfet3_01v8.sym} -280 50 0 0 {name=M1
-L=0.15
+L=0.45
 W=1.5
 body=VDD
 nf=1
@@ -132,7 +132,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_01v8.sym} -280 150 0 0 {name=M3
-L=0.15
+L=0.45
 W=1
 body=GND
 nf=1
@@ -149,7 +149,7 @@ spiceprefix=X
 C {devices/lab_wire.sym} -160 100 0 0 {name=p4 sig_type=std_logic lab=clka}
 C {devices/gnd.sym} -90 200 0 0 {name=l3 lab=GND}
 C {sky130_fd_pr/pfet3_01v8.sym} -110 50 0 0 {name=M2
-L=0.15
+L=0.45
 W=1.5
 body=VDD
 nf=1
@@ -164,7 +164,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_01v8.sym} -110 150 0 0 {name=M4
-L=0.15
+L=0.45
 W=1
 body=GND
 nf=1
