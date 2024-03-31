@@ -8,7 +8,7 @@ def read tt_block_1x2_pg_ana.def
 cellname rename tt_um_template tt_um_urish_charge_pump
 
 # VPWR
-box 100 500 250 22076
+box 14100 500 14250 22076
 paint met4
 label VPWR FreeSans met4
 port VPWR make n
