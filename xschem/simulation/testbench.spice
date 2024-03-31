@@ -1,0 +1,71 @@
+** sch_path: /home/uri/p/tt06-charge-pump/xschem/testbench.sch
+**.subckt testbench
+x1 VDD CLK ua[0] GND dickson
+V1 VDD GND 1.8
+.save i(v1)
+V2 CLK GND PULSE(0 1.8 0 0 0 250n 500n)
+.save i(v2)
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/uri/openmpw/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+
+
+
+.tran 10n 100u
+.save all
+
+.control
+run
+write testbench.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  dickson.sym # of pins=4
+** sym_path: /home/uri/p/tt06-charge-pump/xschem/dickson.sym
+** sch_path: /home/uri/p/tt06-charge-pump/xschem/dickson.sch
+.subckt dickson VPWR clk ua[0] VGND
+*.ipin clk
+*.opin ua[0]
+*.ipin VPWR
+*.ipin VGND
+XM1 clka clk VPWR VDD sky130_fd_pr__pfet_01v8 L=0.45 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 clka clk VGND GND sky130_fd_pr__nfet_01v8 L=0.45 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 clkb clka VPWR VDD sky130_fd_pr__pfet_01v8 L=0.45 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 clkb clka VGND GND sky130_fd_pr__nfet_01v8 L=0.45 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XC3 clka stage3 sky130_fd_pr__cap_mim_m3_1 W=25 L=25 MF=1 m=1
+XM5 stage1 VPWR VPWR VPWR sky130_fd_pr__nfet_01v8_lvt L=8 W=7 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XC1 clka stage1 sky130_fd_pr__cap_mim_m3_1 W=25 L=25 MF=1 m=1
+XM6 stage2 stage1 stage1 stage1 sky130_fd_pr__nfet_01v8_lvt L=8 W=7 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 stage3 stage2 stage2 stage2 sky130_fd_pr__nfet_01v8_lvt L=8 W=7 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XC2 clkb stage2 sky130_fd_pr__cap_mim_m3_1 W=25 L=25 MF=1 m=1
+XM8 vout stage3 stage3 stage3 sky130_fd_pr__nfet_01v8_lvt L=8 W=7 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XC4 VGND vout sky130_fd_pr__cap_mim_m3_1 W=30 L=25 MF=1 m=1
+XR2 ua[0] vout VGND sky130_fd_pr__res_xhigh_po_0p35 L=2500 mult=1 m=1
+XR1 VGND ua[0] VGND sky130_fd_pr__res_xhigh_po_0p35 L=500 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
