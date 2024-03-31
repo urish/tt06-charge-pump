@@ -5,6 +5,9 @@ V1 VDD GND 1.8
 .save i(v1)
 V2 CLK GND PULSE(0 1.8 0 0 0 250n 500n)
 .save i(v2)
+R1 ua[0] analog_pad 500 m=1
+C1 ua[0] 0 2.5p m=1
+C2 analog_pad 0 2.5p m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
