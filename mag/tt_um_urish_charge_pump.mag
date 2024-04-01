@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1711924754
+timestamp 1711967973
 << dnwell >>
 rect 19800 40800 22260 43080
 rect 19800 35460 22260 37740
@@ -641,6 +641,10 @@ use sky130_fd_pr__cap_mim_m3_1_WMZ6NR  C4
 timestamp 1711870259
 transform 1 0 15990 0 1 26540
 box -3150 -2600 3149 2600
+use high_voltage_logo  high_voltage_logo_0
+timestamp 1711967973
+transform 0 -1 7568 1 0 1262
+box 0 0 42336 5768
 use sky130_fd_pr__pfet_01v8_BFP3TE  M1
 timestamp 1711870259
 transform 1 0 31041 0 1 44269
