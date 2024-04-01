@@ -14,3 +14,13 @@ A 3-stage dickson charge pump. The output voltage is `Vout = 4*(VPWR - Vths) = ~
 ## How to test
 
 Apply a clock signal of 2 MHz to the `clk` input. In TT06, the analog pin voltage is limited to 1.8 V, so the output voltage will be divided by 6. You can measure the divided output voltage at the `vout_div` pin.
+
+## Simulation results
+
+Post layout simulation showing the output voltage `x1.vout` and the divided output voltage on ta `ua[0]` pin, with ~16.8 mega ohms load (the internal voltage divider). The output voltage stabilizes at ~5.07 V, and the divided output voltage at ~0.85 V.
+
+![output voltage and divided voltage](sim_graph_vout.png)
+
+The following graph shows the input clock, the intermediate voltages at the output of each stage, the output voltage, and the divided voltage as they rise during the first 10 us of operation.
+
+![output voltage and intermediate voltages](sim_graph_stages.png)
