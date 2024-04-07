@@ -14,6 +14,5 @@ extresist
 ext2spice lvs
 ext2spice cthresh 0
 ext2spice extresist on
-ext2spice
-ext2spice -d -o $output
+ext2spice -o $output
 quit -noprompt
